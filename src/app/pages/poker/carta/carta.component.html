@@ -1,0 +1,10 @@
+<div *ngIf="!virada && !carta.virada" class="carta back" [ngClass]="{miniatura: miniatura}">
+    <div class="logo">Planning Poker</div>
+</div>
+<div *ngIf="virada || carta.virada" class="carta" [ngClass]="{miniatura: miniatura}">
+    <div class="carta-body">
+        <div class="carta-topo">{{carta.valor}}</div>
+        <div class="carta-valor">{{carta.valor}}</div>
+        <div class="carta-bottom">{{carta.valor}}</div>
+    </div>
+</div>

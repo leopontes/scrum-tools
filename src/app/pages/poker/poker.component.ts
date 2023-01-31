@@ -9,11 +9,15 @@ export class PokerComponent implements OnInit {
 
   jogadoresTop: any;
   jogadoresBottom: any;
+  maiorJogada: any;
+  menorJogada: any;
   cartas: any;
+  aberto: boolean;
 
   constructor() {
     this.jogadoresTop = [];
     this.jogadoresTop = [];
+    this.aberto = true;
 
     this.cartas = [
       {valor: 0.5, virada: false},
@@ -41,17 +45,21 @@ export class PokerComponent implements OnInit {
       {nome: 'Maristela', jogou: false, carta: {}},
       {nome: 'Kaio', jogou: false, carta: {}}
     ]
+
+    this.maiorJogada = {nome: 'Ninguem', jogou: false, carta: {valor: 0, virada: false}};
+    this.menorJogada = {nome: 'Ninguem', jogou: false, carta: {valor: 100000, virada: false}};
   }
 
   virar(carta: any){
 
-    const isVirada = !carta.virada;
+    const isVirada = !carta.movida;
 
     for(let c of this.cartas){
       c.virada = false;
+      c.movida = false;
     }
 
-    carta.virada = isVirada;
+    carta.movida = isVirada;
     this.jogadoresTop[0].carta = carta;
     this.jogadoresTop[0].jogou = isVirada;
   }
@@ -73,11 +81,30 @@ export class PokerComponent implements OnInit {
   virarTudo(){
     for(let jogador of this.jogadoresBottom){
       jogador.carta.virada = true;
+      if(jogador.carta.valor > this.maiorJogada.carta.valor){
+        this.maiorJogada = jogador;
+      }
+
+      if(jogador.carta.valor < this.menorJogada.carta.valor){
+        this.menorJogada = jogador;
+      }
     }
 
     for(let jogador of this.jogadoresTop){
       jogador.carta.virada = true;
+
+      if(jogador.carta.valor > this.maiorJogada.carta.valor){
+        this.maiorJogada = jogador;
+      }
+
+      if(jogador.carta.valor < this.menorJogada.carta.valor){
+        this.menorJogada = jogador;
+      }
     }
+
+    this.maiorJogada.jogou = false;
+    this.menorJogada.jogou = false;
+    this.aberto = false;
   }
 
   resetar(){
@@ -90,6 +117,10 @@ export class PokerComponent implements OnInit {
       jogador.carta = {};
       jogador.jogou = false;
     }
+
+    this.maiorJogada = {nome: 'Ninguem', jogou: false, carta: {valor: 0, virada: false}};
+    this.menorJogada = {nome: 'Ninguem', jogou: false, carta: {valor: 100000, virada: false}};
+    this.aberto = true;
   }
 
 }
