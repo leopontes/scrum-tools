@@ -1,0 +1,57 @@
+
+<div class="cadeiras"></div>
+<div class="mesa">
+    <div class="top">
+        <div class="position" *ngFor="let jogador of jogadoresTop">
+            <div class="jogada">
+                <div *ngIf="jogador.jogou">
+                    <div *ngIf="!jogador.carta.virada" class="carta miniatura back">
+                        <div class="logo">Planning Poker</div>
+                    </div>
+                    <div *ngIf="jogador.carta.virada" class="carta miniatura">
+                        <div class="carta-body">
+                            <div class="carta-topo">{{jogador.carta.valor}}</div>
+                            <div class="carta-valor">{{jogador.carta.valor}}</div>
+                            <div class="carta-bottom">{{jogador.carta.valor}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="display">{{jogador.nome}}</div>
+        </div>
+    </div>
+    <div class="bottom">
+        <div class="position" *ngFor="let jogador of jogadoresBottom">
+            <div class="display">{{jogador.nome}}</div>
+            <div class="jogada">
+                <div *ngIf="jogador.jogou">
+                    <div *ngIf="!jogador.carta.virada" class="carta miniatura back">
+                        <div class="logo">Planning Poker</div>
+                    </div>
+                    <div *ngIf="jogador.carta.virada" class="carta miniatura">
+                        <div class="carta-body">
+                            <div class="carta-topo">{{jogador.carta.valor}}</div>
+                            <div class="carta-valor">{{jogador.carta.valor}}</div>
+                            <div class="carta-bottom">{{jogador.carta.valor}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="jogador">
+    <div class="carta" *ngFor="let carta of cartas" (click)="virar(carta)" [ngClass]="{movided: carta.virada}">
+        <div class="carta-body">
+            <div class="carta-topo">{{carta.valor}}</div>
+            <div class="carta-valor">{{carta.valor}}</div>
+            <div class="carta-bottom">{{carta.valor}}</div>
+        </div>
+    </div>
+    <div>
+        <button (click)="virarTudo()">Virar</button>
+        <button (click)="simularRodada()">Simular</button>
+        <button (click)="resetar()">Resetar</button>
+    </div>
+</div>

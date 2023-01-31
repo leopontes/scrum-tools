@@ -1,0 +1,138 @@
+
+.mesa{
+    background-color: #5d1113;
+    background-image: url('../../../assets/imgs/veludo_textura.png');
+    border-image: url('../../../assets/imgs/23625.jpg');
+    width: 60%;
+    height: 400px;
+    border-radius: 150px 150px 150px 150px;
+    border: 15px solid;
+}
+
+.borda{
+    border-radius: 48%;
+    background-color: #ddb581;
+    border: 2px solid black;
+    width: 898px;
+    height: 404px;
+    padding: 20px;
+}
+
+.top{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.bottom{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    /* align-self: flex-end; */
+    /* position: absolute; */
+    margin-top: 163px;
+}
+
+.jogada{
+    border: 2px solid #FFFAFA;
+    width: 45px;
+    height: 74px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.jogador{
+    display: flex;
+    margin-top: 100px;
+}
+
+.carta{
+    border: 1px solid black;
+    border-radius: 5%;
+    padding: 5px;
+    width: 80px;
+    height: 120px;
+    margin-left: 15px;
+    background-color: #ffff;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.miniatura{
+    width: 30px;
+    height: 60px;
+    padding: 4px;
+    margin-left: 2px;
+    margin-top: 2px;
+    border-radius: 4px;
+}
+
+.carta-body{
+    border-radius: 5%;
+    border: 1px solid #6B6A6D;
+    background-color: #f7f7f7;
+    height: 100%;
+    font-size: 35px;
+    font-weight: 500;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+
+.carta-topo{
+    font-size: 15px;
+    text-align: left;
+    height: 3%;
+    padding: 4px 0px 0px 4px;
+}
+
+.carta-valor{
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carta-bottom{
+    font-size: 15px;
+    text-align: right;
+    height: 10%;
+    padding: 0px 4px;
+}
+
+.miniatura .carta-body{
+    font-size: 12px;
+}
+
+.miniatura .carta-bottom,
+.miniatura .carta-topo{
+    font-size: 7px;
+}
+
+.miniatura .carta-valor{
+    height: 76%;
+}
+
+.movided{
+    margin-top: -50px;
+}
+
+.display{
+    color: #ffff;
+    text-align: center;
+}
+
+.back{
+}
+
+.logo{
+    font-size: 7px;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    font-weight: 800;
+    height: 100%;
+    border-radius: 5%;
+}
